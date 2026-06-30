@@ -4,6 +4,11 @@ h1 {
     padding: 0;
 }
 
+header, nav, main, section, article, aside, footer {
+    padding: 1rem;
+    background: #fff;
+}
+
 header {
     display: flex;
     border: 1px solid black;
@@ -14,14 +19,14 @@ header {
 .header {
     margin: 0;
     padding: 0;
-    gap: 30px;
+    gap: 600px;
 }
 
 .navigationbar {
     width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    margin-left: 20px;
+    gap: 50px;
 
     list-style: none;
     margin: 0;
