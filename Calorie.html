@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calorie</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header1">
+            <header class="header">
+                <section class="container_topic">
+                    <h1><a href="Homepage.html">Co-kitchen</a></h1>
+                </section>
+
+                <section class="container_hpnavigationbar">
+                    <ul class="navigationbar">
+                        <li><a href="Recipe.html">Recipe</a></li>
+                        <li><a href="Planning.html">Planning</a></li>
+                        <li><a href="Calorie.html">Calorie</a></li>
+                    </ul>
+                </section>    
+            </header>
+        </div>
+
+        <div class="main_container">
+            <section id="calorie">
+            <h1 class="calories">Calorie Calculator</h1>
+            <div class="calorie-box">
+                <form id="calorieForm">
+                    <label>Age:</label><br>
+                    <input type="text" id="age" required><br>
+                    <td>Gender</td>
+                    <td>
+                        <label for="csex1" class="cbcontainer">
+                            <input type="radio" name="csex" id="csex1" value="m" checked />
+                            <span class="rbmark"></span> male</label> &nbsp; 
+                        <label for="csex2" class="cbcontainer">
+                            <input type="radio" name="csex" id="csex2" value="f"  />
+                            <span class="rbmark"></span> female</label><br>
+                    </td>
+
+                    <label>Height (in cm):</label><br>
+                    <input type="number" id="height" required><br>
+                    <label>Weight (in kg):</label><br>
+                    <input type="number" id="weight" required><br>
+                    <br>
+                    <label>Activity level:</label>
+                    <select id="activity">
+                        <option value="sedentary">Sedentary</option>
+                        <option value="light">Light</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="active">Active</option>
+                    </select><br>
+
+                    <button type="button" id="calculateBtn">Calculate Water Intake</button>
+                </form>
+            </div>
+            </section>
+        </div>
+        <footer>&copy; <i>2026 WDT Group 03</i></footer>
+    </body>
+    
+</html>
