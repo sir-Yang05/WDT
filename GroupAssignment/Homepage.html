@@ -3,8 +3,9 @@
     <head>
         <title>Co-kitchen</title>
         <link rel="stylesheet" href="style.css">
+        <script src="loginScript.js"></script>
     </head>
-    <body>
+    <body onload="displayUsername()">
         <div class="header1">
             <header class="header">
                 <section class="container_topic">
@@ -23,7 +24,9 @@
         
         <div style="background-image: url('homepage.jpg'); height: 600px; background-size: cover; text-align: center;">
         
-            <h2 style="text-align: center; color: rgb(255, 255, 255); padding: 150px 0; font-size: 40px;">Welcome to Co-kitchen</h2>
+            <h2 style="text-align: center; color: rgb(255, 255, 255); padding: 100px 0; font-size: 40px;">Welcome to Co-kitchen</h2>
+            <div id="display_username"></div>
+            
             <div></div>
             <button class="get_start"><a href="Recipe.html">Get Start</a></button>
         </div>

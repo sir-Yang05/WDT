@@ -3,6 +3,7 @@
     <head>
         <title>Login</title>
         <link rel="stylesheet" href="style.css">
+        <script src="loginScript.js"></script>
     </head>
     <body>
         <div class="login-container">
@@ -16,20 +17,6 @@
             </form>
         </div>
     </div>
-    <script>
-    function validateAndRedirect(event) {
-        const username = document.getElementById('username').value.trim();
-
-        if (username === "") {
-            alert("Please enter a valid username.");
-            event.preventDefault(); 
-            return false;
-        }
-
-        window.location.href = 'Homepage.html';
-        return false; 
-    }
-</script>
 
 </body>
 </html>
