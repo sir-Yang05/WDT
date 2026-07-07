@@ -3,6 +3,7 @@
     <head>
         <title>Calorie</title>
         <link rel="stylesheet" href="style.css">
+        <script src="calorieScript.js"></script>
     </head>
     <body>
         <div class="header1">
@@ -27,8 +28,8 @@
             <div class="calorie-box">
                 <form id="calorieForm">
                     <label>Age:</label><br>
-                    <input type="text" id="age" required><br>
-                    <td>Gender</td>
+                    <input type="number" id="age" required><br>
+                    <label>Gender:</label><br>
                     <td>
                         <label for="csex1" class="cbcontainer">
                             <input type="radio" name="csex" id="csex1" value="m" checked />
@@ -49,10 +50,11 @@
                         <option value="light">Light</option>
                         <option value="moderate">Moderate</option>
                         <option value="active">Active</option>
-                    </select><br>
+                    </select><br><br>
 
-                    <button type="button" id="calculateBtn">Calculate Water Intake</button>
+                    <button type="button" id="calculateBtn">Calculate</button>
                 </form>
+                <div id="result"></div>
             </div>
             </section>
         </div>
