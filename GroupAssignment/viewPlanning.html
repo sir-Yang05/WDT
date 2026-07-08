@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>viewPlanning</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .main_container {
+                display: flex;
+                max-width: 1000px;
+                margin: 40px auto;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                overflow: hidden;
+            }
+            #plans-container {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body onload="viewPlanning()">
+        <div class="header1">
+            <header class="header">
+                <section class="container_topic">
+                    <h1><a href="Homepage.html">Co-kitchen</a></h1>
+                </section>
+
+                <section class="container_hpnavigationbar">
+                    <ul class="navigationbar">
+                        <li><a href="Recipe.html">Recipe</a></li>
+                        <li><a href="Planning.html">Planning</a></li>
+                        <li><a href="Calorie.html">Calorie</a></li>
+                    </ul>
+                </section>    
+            </header>
+        </div>
+
+        <div class="main_container">
+            <h2 style="margin-top: 0; color: #333;">View Your Plans</h2><br>
+            
+            <div class="filter-section">
+                <span style="font-weight: bold; color: #555;">Select a Date：</span>
+                <select id="view-year">
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                </select>
+                <select id="view-month">
+                    <option value="01">1</option><option value="02">2</option>
+                    <option value="03">3</option><option value="04">4</option>
+                    <option value="05">5</option><option value="06">6</option>
+                    <option value="07">7</option><option value="08">8</option>
+                    <option value="09">9</option><option value="10">10</option>
+                    <option value="11">11</option><option value="12">12</option>
+                </select>
+                <select id="view-day">
+                </select>
+            </div>
+
+            <div id="plans-container"></div>
+        </div>    
+    </body>
+    <script src="viewPlanning.js"></script>
+    <footer>&copy; <i>2026 WDT Group 03</i></footer>
+</html>
