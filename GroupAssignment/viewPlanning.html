@@ -4,17 +4,73 @@
         <title>viewPlanning</title>
         <link rel="stylesheet" href="style.css">
         <style>
+            :root {
+                --primary-terra: #C46220;
+                --bg-cream: #F7F5EE;
+            }
+            body {
+                background-color: var(--bg-cream);
+                margin: 0;
+            }
             .main_container {
                 display: flex;
-                max-width: 1000px;
+                flex-direction: column;
+                max-width: 800px;
                 margin: 40px auto;
                 background: white;
                 border-radius: 12px;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-                overflow: hidden;
+                padding: 40px;
+                box-sizing: border-box;
+            }
+            .filter-section {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #eee;
+            }
+            .filter-section select {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-right: 10px;
+                font-size: 1rem;
             }
             #plans-container {
                 margin-top: 20px;
+            }
+            .meal-box {
+                border: 2px solid var(--primary-terra, #C46220);
+                border-radius: 8px;
+                margin-bottom: 20px;
+                padding: 20px;
+                background-color: white;
+            }
+            .meal-box h3 {
+                margin: 0 0 15px 0;
+                color: var(--primary-terra, #C46220);
+                border-bottom: 1px dashed #eee;
+                padding-bottom: 10px;
+            }
+            .meal-items {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .meal-items li {
+                background: var(--bg-cream, #F7F5EE);
+                padding: 8px 15px;
+                border-radius: 4px;
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 5px;
+                border: 1px solid #ddd;
+            }
+            .empty-msg {
+                color: #999;
+                font-style: italic;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
             }
         </style>
     </head>
@@ -37,10 +93,10 @@
         </div>
 
         <div class="main_container">
-            <h2 style="margin-top: 0; color: #333;">View Your Plans</h2><br>
+            <h2 style="margin-top: 0; color: #333;">View Your Plans</h2>
             
             <div class="filter-section">
-                <span style="font-weight: bold; color: #555;">Select a Date：</span>
+                <span style="font-weight: bold; color: #555;">Select a Date: </span>
                 <select id="view-year">
                     <option value="2026">2026</option>
                     <option value="2027">2027</option>
@@ -54,13 +110,12 @@
                     <option value="09">9</option><option value="10">10</option>
                     <option value="11">11</option><option value="12">12</option>
                 </select>
-                <select id="view-day">
-                </select>
+                <select id="view-day"></select>
             </div>
 
             <div id="plans-container"></div>
         </div>    
+        <script src="viewPlanning.js"></script>
     </body>
-    <script src="viewPlanning.js"></script>
     <footer>&copy; <i>2026 WDT Group 03</i></footer>
 </html>

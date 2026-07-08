@@ -13,14 +13,14 @@ function populateDays() {
     daySelect.innerHTML = '';
     
     for (let i = 1; i <= daysInMonth; i++) {
-        const dayStr = i < 10 ? '0' + i : i.toString();
+        const dayStr = i.toString().padStart(2, '0');
         const option = document.createElement('option');
         option.value = dayStr;
         option.textContent = i;
         daySelect.appendChild(option);
     }
     
-    if (currentSelectedDay && currentSelectedDay <= daysInMonth) {
+    if (currentSelectedDay && parseInt(currentSelectedDay) <= daysInMonth) {
         daySelect.value = currentSelectedDay;
     }
 }
@@ -32,30 +32,27 @@ function renderMealPlan() {
     
     const dateKey = `${year}-${month}-${day}`;
     const allPlans = JSON.parse(localStorage.getItem('coKitchenPlans')) || {};
-    const dayPlan = allPlans[dateKey];
+    const dayPlan = allPlans[dateKey] || { breakfast: [], lunch: [], dinner: [] };
     
-    if (dayPlan && (dayPlan.breakfast.length > 0 || dayPlan.lunch.length > 0 || dayPlan.dinner.length > 0)) {
-        let htmlContent = `<h3 style="color: #C46220;">Plan for ${dateKey}</h3>`;
+    let htmlContent = '';
+    
+    ['breakfast', 'lunch', 'dinner'].forEach(meal => {
+        const mealTitle = meal.charAt(0).toUpperCase() + meal.slice(1);
+        htmlContent += `<div class="meal-box">`;
+        htmlContent += `<h3>${mealTitle}</h3>`;
+        htmlContent += `<ul class="meal-items">`;
         
-        ['breakfast', 'lunch', 'dinner'].forEach(meal => {
-            const mealTitle = meal.charAt(0).toUpperCase() + meal.slice(1);
-            htmlContent += `<div style="margin-bottom: 5px; padding: 5px; background: #fcfbf9; border-left: 4px solid #7A987E;">`;
-            htmlContent += `<h4 style="margin: 0 0 5px 0; color: #7A987E;">${mealTitle}</h4><ul>`;
-            
-            if (dayPlan[meal] && dayPlan[meal].length > 0) {
-                dayPlan[meal].forEach(food => {
-                    htmlContent += `<li>${food}</li>`;
-                });
-            } else {
-                htmlContent += `<li style="color: #bbb; list-style:none;">No plan</li>`;
-            }
-            htmlContent += `</ul></div>`;
-        });
-        
-        plansContainer.innerHTML = htmlContent;
-    } else {
-        plansContainer.innerHTML = `<p style="color: #999; font-style: italic; padding: 5px;">No plan found for ${dateKey}.</p>`;
-    }
+        if (dayPlan[meal] && dayPlan[meal].length > 0) {
+            dayPlan[meal].forEach(food => {
+                htmlContent += `<li>${food}</li>`;
+            });
+        } else {
+            htmlContent += `<li class="empty-msg">No plans for this meal.</li>`;
+        }
+        htmlContent += `</ul></div>`;
+    });
+    
+    plansContainer.innerHTML = htmlContent;
 }
 
 yearSelect.addEventListener('change', () => {
@@ -71,11 +68,16 @@ monthSelect.addEventListener('change', () => {
 daySelect.addEventListener('change', renderMealPlan);
 
 function viewPlanning() {
-    yearSelect.value = "2026";
-    monthSelect.value = "07";
+    const today = new Date();
+    const yyyy = today.getFullYear().toString();
+    const mm = (today.getMonth() + 1).toString().padStart(2, '0');
+    const dd = today.getDate().toString().padStart(2, '0');
+    
+    yearSelect.value = yyyy;
+    monthSelect.value = mm;
     
     populateDays();
-    daySelect.value = "08";
+    daySelect.value = dd;
     
     renderMealPlan();
 }
