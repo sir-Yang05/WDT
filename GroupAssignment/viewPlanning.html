@@ -19,7 +19,7 @@
         </style>
     </head>
 
-    <body>
+    <body onload="viewPlanning()">
         <div class="header1">
             <header class="header">
                 <section class="container_topic">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="main_container">
-            <h2 style="margin-top: 0; color: #333;">View Your Plans</h2>
+            <h2 style="margin-top: 0; color: #333;">View Your Plans</h2><br>
             
             <div class="filter-section">
                 <span style="font-weight: bold; color: #555;">Select a Date：</span>
@@ -54,7 +54,8 @@
                     <option value="09">9</option><option value="10">10</option>
                     <option value="11">11</option><option value="12">12</option>
                 </select>
-                <select id="view-day"></select>
+                <select id="view-day">
+                </select>
             </div>
 
             <div id="plans-container"></div>
